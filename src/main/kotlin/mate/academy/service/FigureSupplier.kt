@@ -9,6 +9,12 @@ import mate.academy.model.RightTriangle
 import mate.academy.model.Square
 import kotlin.random.Random
 
+
+private const val SQUARE_CASE: Int = 0
+private const val RECTANGLE_CASE: Int = 1
+private const val RIGHTTRIANGLE_CASE: Int = 2
+private const val CIRCLE_CASE: Int = 3
+
 private const val ONE: Double = 1.0
 private const val FIVE: Int = 5
 private const val TEN: Double = 10.0
@@ -19,17 +25,18 @@ class FigureSupplier {
     
     fun getRandomFigure(): Figure {
         return when (Random.nextInt(FIVE)) {
-            0 -> Square(Random.nextDouble(ONE, TEN),
+            SQUARE_CASE -> Square(Random.nextDouble(ONE, TEN),
                 colorSupplier.getRandomColor())
-            1 -> Rectangle(Random.nextDouble(ONE, TEN),
+            RECTANGLE_CASE -> Rectangle(
+                Random.nextDouble(ONE, TEN),
                 Random.nextDouble(ONE, TEN),
                 colorSupplier.getRandomColor())
-            2 -> RightTriangle(
+            RIGHTTRIANGLE_CASE -> RightTriangle(
                 Random.nextDouble(ONE, TEN),
                 Random.nextDouble(ONE, TEN),
                 colorSupplier.getRandomColor()
             )
-            3 -> Circle(Random.nextDouble(ONE, TEN),
+            CIRCLE_CASE -> Circle(Random.nextDouble(ONE, TEN),
                 colorSupplier.getRandomColor())
             else -> IsoscelesTrapezoid(
                 Random.nextDouble(ONE, TEN),
