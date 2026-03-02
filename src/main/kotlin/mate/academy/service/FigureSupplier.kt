@@ -9,34 +9,38 @@ import mate.academy.model.RightTriangle
 import mate.academy.model.Square
 import kotlin.random.Random
 
+private const val ONE: Double = 1.0
+private const val FIVE: Int = 5
+private const val TEN: Double = 10.0
+
 class FigureSupplier {
 
     private val colorSupplier = ColorSupplier()
-
+    
     fun getRandomFigure(): Figure {
-        return when (Random.nextInt(5)) {
-            0 -> Square(Random.nextDouble(1.0, 10.0),
+        return when (Random.nextInt(FIVE)) {
+            0 -> Square(Random.nextDouble(ONE, TEN),
                 colorSupplier.getRandomColor())
-            1 -> Rectangle(Random.nextDouble(1.0, 10.0),
-                Random.nextDouble(1.0, 10.0),
+            1 -> Rectangle(Random.nextDouble(ONE, TEN),
+                Random.nextDouble(ONE, TEN),
                 colorSupplier.getRandomColor())
             2 -> RightTriangle(
-                Random.nextDouble(1.0, 10.0),
-                Random.nextDouble(1.0, 10.0),
+                Random.nextDouble(ONE, TEN),
+                Random.nextDouble(ONE, TEN),
                 colorSupplier.getRandomColor()
             )
-            3 -> Circle(Random.nextDouble(1.0, 10.0),
+            3 -> Circle(Random.nextDouble(ONE, TEN),
                 colorSupplier.getRandomColor())
             else -> IsoscelesTrapezoid(
-                Random.nextDouble(1.0, 10.0),
-                Random.nextDouble(1.0, 10.0),
-                Random.nextDouble(1.0, 10.0),
+                Random.nextDouble(ONE, TEN),
+                Random.nextDouble(ONE, TEN),
+                Random.nextDouble(ONE, TEN),
                 colorSupplier.getRandomColor()
             )
         }
     }
 
     fun getDefaultFigure(): Figure {
-        return Circle(10.0, Color.WHITE)
+        return Circle(TEN, Color.WHITE)
     }
 }
